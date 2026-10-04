@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="ms" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BERSAMA - Bersatu Bersama Anak | Advokasi Pendidikan & Komuniti</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0fdfa',
+                            100: '#ccfbf1',
+                            200: '#99f6e4',
+                            500: '#14b8a6',
+                            600: '#0d9488',
+                            700: '#0f766e',
+                            800: '#115e59',
+                            900: '#134e4a',
+                        },
+                        amberGold: {
+                            400: '#fbbf24',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(15, 118, 110, 0.92) 0%, rgba(17, 94, 89, 0.88) 100%);
+        }
+        .badge-pulse {
+            animation: pulse-ring 2s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
+        }
+        @keyframes pulse-ring {
+            0% { transform: scale(0.95); opacity: 0.8; }
+            50% { transform: scale(1.05); opacity: 1; }
+            100% { transform: scale(0.95); opacity: 0.8; }
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-brand-500 selection:text-white">
+
+    <!-- NAVIGATION BAR -->
+    <header class="sticky top-0 z-50 transition-all duration-300 bg-white/90 backdrop-blur-md border-b border-slate-100 shadow-sm" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                
+                <!-- Logo -->
+                <a href="#home" class="flex items-center gap-3 group">
+                    <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-brand-700 to-brand-500 flex items-center justify-center text-white shadow-md shadow-brand-500/20 group-hover:scale-105 transition-transform">
+                        <i class="fa-solid font-bold text-2xl fa-hands-holding-child"></i>
+                    </div>
+                    <div>
+                        <span class="block text-xl font-extrabold tracking-tight text-slate-900 leading-none">BERSAMA</span>
+                        <span class="text-xs font-medium text-brand-600 tracking-wide uppercase">Bersatu Bersama Anak</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-slate-600">
+                    <a href="#sejarah" class="hover:text-brand-600 transition-colors">Sejarah</a>
+                    <a href="#visi-misi" class="hover:text-brand-600 transition-colors">Visi & Misi</a>
+                    <a href="#pengasas" class="hover:text-brand-600 transition-colors">Latar Belakang Pengasas</a>
+                    <a href="#program" class="hover:text-brand-600 transition-colors">Program & Impak</a>
+                    <a href="#hubungi" class="hover:text-brand-600 transition-colors">Hubungi</a>
+                </nav>
+
+                <!-- Action Button -->
+                <div class="hidden md:flex items-center gap-3">
+                    <a href="https://wa.me/60176272140" target="_blank" class="inline-flex items-center gap-2 bg-brand-600 hover:bg-brand-700 text-white font-semibold text-sm px-5 py-2.5 rounded-full shadow-md shadow-brand-600/20 hover:shadow-lg transition-all transform hover:-translate-y-0.5">
+                        <i class="fa-brands fa-whatsapp text-lg"></i>
+                        <span>Hubungi WhatsApp</span>
+                    </a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <button id="mobile-menu-btn" type="button" class="md:hidden p-2.5 rounded-xl text-slate-700 hover:bg-slate-100 transition-colors" aria-label="Buka Menu">
+                    <i class="fa-solid fa-bars text-xl" id="menu-icon"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Nav Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-6 space-y-3 shadow-xl">
+            <a href="#sejarah" class="mobile-link block py-2.5 px-4 rounded-lg text-slate-700 hover:bg-slate-50 font-medium">Sejarah BERSAMA</a>
+            <a href="#visi-misi" class="mobile-link block py-2.5 px-4 rounded-lg text-slate-700 hover:bg-slate-50 font-medium">Visi & Misi</a>
+            <a href="#pengasas" class="mobile-link block py-2.5 px-4 rounded-lg text-slate-700 hover:bg-slate-50 font-medium">Latar Belakang Pengasas</a>
+            <a href="#program" class="mobile-link block py-2.5 px-4 rounded-lg text-slate-700 hover:bg-slate-50 font-medium">Program & Galeri</a>
+            <a href="#hubungi" class="mobile-link block py-2.5 px-4 rounded-lg text-slate-700 hover:bg-slate-50 font-medium">Hubungi & Sertai</a>
+            <div class="pt-2">
+                <a href="https://wa.me/60176272140" target="_blank" class="flex justify-center items-center gap-2 bg-brand-600 text-white font-semibold py-3 rounded-xl shadow-md">
+                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                    <span>Hubungi Via WhatsApp</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="home" class="relative bg-slate-900 text-white overflow-hidden py-20 lg:py-28">
+        <!-- Background Overlay Image -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=1600&auto=format&fit=crop" 
+                 alt="Program Sukarelawan Pendidikan Kanak-Kanak" 
+                 class="w-full h-full object-cover object-center opacity-30">
+            <div class="absolute inset-0 hero-gradient"></div>
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    
+                    <!-- Banner Badge -->
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-brand-100 text-xs sm:text-sm font-medium">
+                        <span class="flex h-2 w-2 rounded-full bg-amberGold-400 badge-pulse"></span>
+                        <span>Gerakan Advokasi Komuniti & Pendidikan Sejak 2024</span>
+                    </div>
+
+                    <!-- Main Headline -->
+                    <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
+                        Bersatu Bersama Anak: <br class="hidden sm:inline">
+                        <span class="text-amberGold-400">Membina Masa Depan</span> Tanpa Batasan.
+                    </h1>
+
+                    <p class="text-slate-200 text-base sm:text-lg max-w-2xl font-light leading-relaxed mx-auto lg:mx-0">
+                        Inisiatif advocacy yang membawakan pendidikan berkualiti, kesejahteraan kesihatan asas, serta peluang pembangunan saksama khusus untuk kanak-kanak dan keluarga luar bandar di Malaysia.
+                    </p>
+
+                    <!-- CTA Buttons -->
+                    <div class="pt-4 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                        <a href="#hubungi" class="inline-flex items-center justify-center gap-2 bg-amberGold-500 hover:bg-amberGold-600 text-slate-950 font-bold px-8 py-4 rounded-xl shadow-lg shadow-amberGold-500/25 transition-all transform hover:-translate-y-0.5 text-base">
+                            <i class="fa-solid fa-heart"></i>
+                            <span>Sertai Gerakan BERSAMA</span>
+                        </a>
+                        <a href="#sejarah" class="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white font-semibold px-8 py-4 rounded-xl border border-white/20 backdrop-blur-md transition-all text-base">
+                            <i class="fa-solid fa-book-open"></i>
+                            <span>Ketahui Sejarah Kami</span>
+                        </a>
+                    </div>
+
+                    <!-- Core Quote Banner -->
+                    <div class="pt-6 border-t border-white/10 mt-8">
+                        <p class="italic text-brand-100 text-sm sm:text-base font-light">
+                            “Tiada anak yang seharusnya dibatasi oleh tempat mereka dilahirkan.”
+                        </p>
+                    </div>
+
+                </div>
+
+                <!-- Quick Impact Card Feature -->
+                <div class="lg:col-span-5">
+                    <div class="glass-card rounded-3xl p-6 sm:p-8 text-slate-800 shadow-2xl relative overflow-hidden">
+                        <div class="absolute -right-8 -top-8 w-32 h-32 bg-brand-500/10 rounded-full blur-2xl"></div>
+                        
+                        <h3 class="text-xl font-bold text-slate-900 mb-6 flex items-center gap-2">
+                            <i class="fa-solid fa-chart-line text-brand-600"></i>
+                            <span>Impak Ringkas BERSAMA</span>
+                        </h3>
+
+                        <div class="space-y-4">
+                            <!-- Metric 1 -->
+                            <div class="flex items-center p-4 rounded-2xl bg-slate-50 border border-slate-100">
+                                <div class="w-12 h-12 rounded-xl bg-brand-100 text-brand-700 flex items-center justify-center text-xl font-bold mr-4 shrink-0">
+                                    <i class="fa-solid fa-school"></i>
+                                </div>
+                                <div>
+                                    <div class="text-2xl font-extrabold text-slate-900">5 Sekolah</div>
+                                    <div class="text-xs text-slate-600 font-medium">Luar bandar telah disantuni & dijalankan</div>
+                                </div>
+                            </div>
+
+                            <!-- Metric 2 -->
+                            <div class="flex items-center p-4 rounded-2xl bg-slate-50 border border-slate-100">
+                                <div class="w-12 h-12 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center text-xl font-bold mr-4 shrink-0">
+                                    <i class="fa-solid fa-house-chimney-heart"></i>
+                                </div>
+                                <div>
+                                    <div class="text-2xl font-extrabold text-slate-900">2 Rumah</div>
+                                    <div class="text-xs text-slate-600 font-medium">Anak Yatim Piatu disokong secara berterusan</div>
+                                </div>
+                            </div>
+
+                            <!-- Metric 3 -->
+                            <div class="flex items-center p-4 rounded-2xl bg-amber-50 border border-amber-200">
+                                <div class="w-12 h-12 rounded-xl bg-amber-500 text-white flex items-center justify-center text-xl font-bold mr-4 shrink-0 shadow-md">
+                                    <i class="fa-solid fa-trophy"></i>
+                                </div>
+                                <div>
+                                    <div class="text-sm font-bold text-amber-900">Anugerah Ikon Wanita 2025</div>
+                                    <div class="text-xs text-amber-700 font-medium">Kategori Sukarelawan</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-6 pt-4 border-t border-slate-200 text-center">
+                            <p class="text-xs text-slate-500">
+                                Diasaskan oleh <strong class="text-slate-800">Dr. Catherine Prisca Francis</strong> (2024)
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SEJARAH BERSAMA SECTION -->
+    <section id="sejarah" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- History Image Grid (Program Pictures) -->
+                <div class="lg:col-span-6 order-2 lg:order-1">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="space-y-4">
+                            <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=800&auto=format&fit=crop" 
+                                 alt="Kanak-kanak belajar luar bandar" 
+                                 class="rounded-2xl shadow-lg w-full h-52 sm:h-64 object-cover">
+                            <div class="bg-brand-700 text-white p-5 rounded-2xl shadow-md">
+                                <p class="text-2xl font-black mb-1">2024</p>
+                                <p class="text-xs text-brand-100">Tahun penubuhan inisiatif BERSAMA oleh Dr. Catherine Prisca Francis</p>
+                            </div>
+                        </div>
+                        <div class="space-y-4 pt-6">
+                            <div class="bg-amber-50 border border-amber-200 p-5 rounded-2xl">
+                                <i class="fa-solid fa-quote-left text-2xl text-amber-500 mb-2 block"></i>
+                                <p class="text-xs sm:text-sm text-slate-700 font-medium italic">
+                                    "Perubahan bermula apabila kita memilih untuk hadir, mendengar dan bertindak bersama."
+                                </p>
+                            </div>
+                            <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?q=80&w=800&auto=format&fit=crop" 
+                                 alt="Aktiviti sekolah luar bandar" 
+                                 class="rounded-2xl shadow-lg w-full h-52 sm:h-64 object-cover">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- History Text Content -->
+                <div class="lg:col-span-6 order-1 lg:order-2 space-y-6">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-50 border border-brand-200 text-brand-700 text-xs font-bold uppercase tracking-wider">
+                        <i class="fa-solid fa-clock-rotate-left"></i>
+                        <span>Sejarah Penubuhan</span>
+                    </div>
+
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
+                        Lahir Daripada Keprihatinan, Bergerak Demi Masa Depan
+                    </h2>
+
+                    <p class="text-slate-600 leading-relaxed text-base">
+                        <strong class="text-slate-900 font-semibold">BERSAMA – Bersatu Bersama Anak</strong> diasaskan pada tahun 2024 oleh <strong class="text-slate-900 font-semibold">Dr. Catherine Prisca Francis</strong> sebagai sebuah inisiatif yang lahir daripada keprihatinan terhadap keperluan pendidikan, kesihatan asas dan pembangunan komuniti, khususnya dalam kalangan kanak-kanak dan keluarga di kawasan luar bandar.
+                    </p>
+
+                    <p class="text-slate-600 leading-relaxed text-base">
+                        Penubuhan BERSAMA bermula dengan satu kepercayaan bahawa setiap anak berhak mendapat peluang yang sama untuk belajar, berkembang dan membina masa depan yang lebih baik, tanpa mengira latar belakang atau lokasi mereka.
+                    </p>
+
+                    <p class="text-slate-600 leading-relaxed text-base">
+                        Melalui BERSAMA, Dr. Catherine berusaha menggabungkan ilmu, pengalaman profesional dan semangat kesukarelawanan untuk mendekati komuniti serta mewujudkan ruang yang memberi manfaat secara langsung kepada kanak-kanak dan keluarga.
+                    </p>
+
+                    <div class="p-4 rounded-2xl bg-slate-50 border-l-4 border-brand-600 text-slate-700 text-sm font-medium">
+                        BERSAMA bukan sekadar sebuah inisiatif, tetapi sebuah gerakan yang percaya bahawa perubahan bermula apabila kita memilih untuk hadir, mendengar dan bertindak bersama.
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- VISI & MISI SECTION -->
+    <section id="visi-misi" class="py-20 bg-slate-100/70 border-y border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Section Header -->
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-100 text-brand-800 text-xs font-bold uppercase tracking-wider">
+                    <i class="fa-solid fa-compass"></i>
+                    <span>Hala Tuju BERSAMA</span>
+                </div>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">Visi & Misi Utama</h2>
+                <p class="text-slate-600">Panduan komitmen kami dalam membangunkan komuniti dan kanak-kanak di seluruh Malaysia.</p>
+            </div>
+
+            <!-- Visi Card -->
+            <div class="mb-12 bg-gradient-to-r from-brand-800 to-brand-700 rounded-3xl p-8 sm:p-10 text-white shadow-xl relative overflow-hidden">
+                <div class="absolute right-0 top-0 translate-x-10 -translate-y-10 w-64 h-64 bg-white/5 rounded-full blur-3xl"></div>
+                <div class="relative z-10 max-w-4xl mx-auto text-center space-y-4">
+                    <div class="inline-block p-3 bg-white/10 rounded-2xl backdrop-blur-md mb-2">
+                        <i class="fa-solid fa-eye text-3xl text-amberGold-400"></i>
+                    </div>
+                    <h3 class="text-2xl sm:text-3xl font-extrabold tracking-tight">Visi BERSAMA</h3>
+                    <p class="text-lg sm:text-xl font-light leading-relaxed text-brand-100">
+                        "Membina masa depan yang lebih cerah dan saksama untuk setiap anak di Malaysia melalui akses kepada pendidikan berkualiti, penjagaan kesihatan asas dan peluang pembangunan yang sewajarnya, tanpa mengira latar belakang atau lokasi mereka."
+                    </p>
+                </div>
+            </div>
+
+            <!-- Misi Grid (5 Points) -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- Misi 1 -->
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 hover:shadow-md transition-shadow group">
+                    <div class="w-12 h-12 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center text-xl font-bold mb-5 group-hover:bg-brand-600 group-hover:text-white transition-colors">
+                        1
+                    </div>
+                    <h4 class="text-lg font-bold text-slate-900 mb-2 flex items-center gap-2">
+                        <i class="fa-solid fa-book-reader text-brand-600"></i>
+                        <span>Memperluas Akses Pendidikan</span>
+                    </h4>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Menyokong kanak-kanak, khususnya di kawasan luar bandar dan komuniti yang kurang mendapat kemudahan, agar mereka mempunyai akses kepada pendidikan dan bahan pembelajaran yang berkualiti.
+                    </p>
+                </div>
+
+                <!-- Misi 2 -->
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 hover:shadow-md transition-shadow group">
+                    <div class="w-12 h-12 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center text-xl font-bold mb-5 group-hover:bg-brand-600 group-hover:text-white transition-colors">
+                        2
+                    </div>
+                    <h4 class="text-lg font-bold text-slate-900 mb-2 flex items-center gap-2">
+                        <i class="fa-solid fa-heart-pulse text-brand-600"></i>
+                        <span>Menyokong Kesejahteraan Kesihatan</span>
+                    </h4>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Meningkatkan kesedaran serta sokongan terhadap keperluan kesihatan asas kanak-kanak dan keluarga dalam komuniti luar bandar.
+                    </p>
+                </div>
+
+                <!-- Misi 3 -->
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 hover:shadow-md transition-shadow group">
+                    <div class="w-12 h-12 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center text-xl font-bold mb-5 group-hover:bg-brand-600 group-hover:text-white transition-colors">
+                        3
+                    </div>
+                    <h4 class="text-lg font-bold text-slate-900 mb-2 flex items-center gap-2">
+                        <i class="fa-solid fa-lightbulb text-brand-600"></i>
+                        <span>Membina Potensi & Keyakinan</span>
+                    </h4>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Mewujudkan aktiviti yang membantu kanak-kanak mengembangkan ilmu, kemahiran, kreativiti, keyakinan diri dan impian mereka.
+                    </p>
+                </div>
+
+                <!-- Misi 4 -->
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 hover:shadow-md transition-shadow group">
+                    <div class="w-12 h-12 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center text-xl font-bold mb-5 group-hover:bg-brand-600 group-hover:text-white transition-colors">
+                        4
+                    </div>
+                    <h4 class="text-lg font-bold text-slate-900 mb-2 flex items-center gap-2">
+                        <i class="fa-solid fa-people-roof text-brand-600"></i>
+                        <span>Memperkasa Komuniti</span>
+                    </h4>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Bekerjasama dengan sekolah, sukarelawan, komuniti dan pihak berkepentingan untuk membangunkan persekitaran yang lebih menyokong perkembangan anak-anak.
+                    </p>
+                </div>
+
+                <!-- Misi 5 -->
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 hover:shadow-md transition-shadow group md:col-span-2 lg:col-span-1">
+                    <div class="w-12 h-12 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center text-xl font-bold mb-5 group-hover:bg-brand-600 group-hover:text-white transition-colors">
+                        5
+                    </div>
+                    <h4 class="text-lg font-bold text-slate-900 mb-2 flex items-center gap-2">
+                        <i class="fa-solid fa-hand-holding-hand text-brand-600"></i>
+                        <span>Membawa Peluang Lebih Dekat</span>
+                    </h4>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Menghubungkan komuniti yang memerlukan dengan sumber, bantuan dan peluang yang boleh menyumbang kepada masa depan mereka.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- LATAR BELAKANG FOUNDER SECTION -->
+    <section id="pengasas" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="bg-slate-900 text-white rounded-3xl p-8 sm:p-12 lg:p-16 shadow-2xl relative overflow-hidden">
+                
+                <!-- Decorative Elements -->
+                <div class="absolute -bottom-20 -right-20 w-80 h-80 bg-brand-600/20 rounded-full blur-3xl"></div>
+                <div class="absolute -top-20 -left-20 w-80 h-80 bg-amberGold-500/10 rounded-full blur-3xl"></div>
+
+                <div class="relative z-10 grid lg:grid-cols-12 gap-12 items-start">
+                    
+                    <!-- Left Sidebar Info (Award & Socials - No Founder Image) -->
+                    <div class="lg:col-span-4 space-y-6">
+                        
+                        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-500/20 border border-brand-500/30 text-brand-300 text-xs font-bold uppercase tracking-wider">
+                            <i class="fa-solid fa-user-graduate"></i>
+                            <span>Pengasas BERSAMA</span>
+                        </div>
+
+                        <div>
+                            <h2 class="text-2xl sm:text-3xl font-extrabold text-white leading-tight">
+                                Dr. Catherine Prisca Francis
+                            </h2>
+                            <p class="text-brand-300 font-medium text-sm mt-1">
+                                Pensyarah | Model | Sukarelawan | Penceramah
+                            </p>
+                        </div>
+
+                        <!-- Award Badge Box -->
+                        <div class="p-5 rounded-2xl bg-gradient-to-br from-amber-500/20 to-amber-600/10 border border-amber-500/40 text-amber-200">
+                            <div class="flex items-center gap-3 mb-2">
+                                <div class="w-10 h-10 rounded-xl bg-amber-500 text-slate-950 flex items-center justify-center font-bold text-lg">
+                                    <i class="fa-solid fa-award"></i>
+                                </div>
+                                <div>
+                                    <span class="block text-xs uppercase font-extrabold tracking-wider text-amber-400">Pencapaian Khas</span>
+                                    <span class="text-sm font-bold text-white">Anugerah Ikon Wanita 2025</span>
+                                </div>
+                            </div>
+                            <p class="text-xs text-amber-200/90 pl-13">
+                                Diumumkan bagi Kategori Sukarelawan atas jasa & komitmen kepimpinan komuniti.
+                            </p>
+                        </div>
+
+                        <!-- Heritage & Education Highlights -->
+                        <div class="space-y-3 pt-2">
+                            <div class="flex items-center gap-3 text-xs sm:text-sm text-slate-300 bg-white/5 p-3 rounded-xl border border-white/10">
+                                <i class="fa-solid fa-graduation-cap text-brand-400 text-lg"></i>
+                                <span><strong>PhD Biomedical & Education</strong> (University of Cambridge)</span>
+                            </div>
+
+                            <div class="flex items-center gap-3 text-xs sm:text-sm text-slate-300 bg-white/5 p-3 rounded-xl border border-white/10">
+                                <i class="fa-solid fa-mountain-sun text-brand-400 text-lg"></i>
+                                <span>Warisan <strong>Iban</strong> (Sibu) & <strong>Dusun</strong> (Tambunan)</span>
+                            </div>
+                        </div>
+
+                        <!-- Social Links -->
+                        <div class="pt-4 border-t border-white/10">
+                            <span class="block text-xs uppercase font-semibold text-slate-400 mb-3">Pautan Media Sosial Pengasas:</span>
+                            <div class="flex flex-wrap gap-3">
+                                <a href="https://www.facebook.com/share/18X3EeLZC2/?mibextid=wwXIfr" 
+                                   target="_blank" 
+                                   class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold transition-all">
+                                    <i class="fa-brands fa-facebook-f"></i>
+                                    <span>Facebook</span>
+                                </a>
+                                <a href="https://www.instagram.com/beauty.umang?stkn=Y2ZkNnQzNzBwajcy&utm_source=qr" 
+                                   target="_blank" 
+                                   class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-purple-600 via-pink-600 to-amber-500 hover:opacity-90 text-white text-xs font-semibold transition-all">
+                                    <i class="fa-brands fa-instagram"></i>
+                                    <span>Instagram</span>
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Right Bio Content -->
+                    <div class="lg:col-span-8 space-y-5 text-slate-300 text-sm sm:text-base leading-relaxed font-light">
+                        
+                        <p class="text-white font-normal text-base sm:text-lg">
+                            <strong class="text-brand-300">Dr. Catherine Prisca Francis</strong> merupakan seorang pensyarah, model, sukarelawan dan penceramah yang mempunyai latar belakang akademik serta profesional yang kukuh.
+                        </p>
+
+                        <p>
+                            Catherine mempunyai kelulusan <strong class="text-white">PhD dalam Biomedical and Education dari University of Cambridge</strong>, melengkapkan perjalanan akademiknya dalam bidang perubatan dan pendidikan. Pengalaman dalam dunia akademik turut membentuk dirinya sebagai seorang pendidik yang percaya bahawa ilmu pengetahuan bukan sekadar untuk mencapai kejayaan peribadi, tetapi merupakan satu amanah untuk dikongsi dan digunakan bagi memberi manfaat kepada masyarakat.
+                        </p>
+
+                        <p>
+                            Berasal daripada keluarga dengan warisan <strong class="text-white">Iban dari sebelah ibu yang berasal dari Sibu</strong> dan <strong class="text-white">Dusun dari sebelah bapa yang berasal dari Tambunan</strong>, Catherine menghargai kepelbagaian budaya serta identiti masyarakat Malaysia, khususnya warisan Borneo yang menjadi sebahagian daripada dirinya.
+                        </p>
+
+                        <p>
+                            Dalam bidang kemasyarakatan, Catherine aktif menyumbang melalui inisiatif <strong class="text-white">BERSAMA – Bersatu Bersama Anak</strong>, yang memberi tumpuan kepada pendidikan berkualiti, penjagaan kesihatan asas dan pembangunan komuniti, khususnya bagi kanak-kanak serta keluarga di kawasan luar bandar.
+                        </p>
+
+                        <p>
+                            Selain dunia akademik dan kemasyarakatan, Catherine turut mempunyai pengalaman dalam bidang peragaan dan pengacaraan serta aktif sebagai penceramah. Kemahiran komunikasi dan pengucapan awam menjadi antara kekuatan utama beliau dalam menyampaikan idea, berkongsi ilmu dan berinteraksi dengan pelbagai lapisan masyarakat.
+                        </p>
+
+                        <!-- Sports & Lifestyle Badge Grid -->
+                        <div class="pt-4 pb-2">
+                            <span class="block text-xs uppercase font-bold text-slate-400 mb-2">Gaya Hidup Sihat & Disiplin Sukan:</span>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1.5 rounded-lg bg-white/10 text-xs font-medium text-slate-200 border border-white/10"><i class="fa-solid fa-hand-fist text-amberGold-400 mr-1.5"></i>Muay Thai</span>
+                                <span class="px-3 py-1.5 rounded-lg bg-white/10 text-xs font-medium text-slate-200 border border-white/10"><i class="fa-solid fa-user-ninja text-amberGold-400 mr-1.5"></i>Taekwondo</span>
+                                <span class="px-3 py-1.5 rounded-lg bg-white/10 text-xs font-medium text-slate-200 border border-white/10"><i class="fa-solid fa-futbol text-amberGold-400 mr-1.5"></i>Bola Sepak</span>
+                                <span class="px-3 py-1.5 rounded-lg bg-white/10 text-xs font-medium text-slate-200 border border-white/10"><i class="fa-solid fa-basketball text-amberGold-400 mr-1.5"></i>Bola Keranjang</span>
+                                <span class="px-3 py-1.5 rounded-lg bg-white/10 text-xs font-medium text-slate-200 border border-white/10"><i class="fa-solid fa-person-running text-amberGold-400 mr-1.5"></i>Larian</span>
+                            </div>
+                        </div>
+
+                        <p class="text-slate-200 italic border-l-2 border-brand-400 pl-4 py-1">
+                            "Sebagai seorang wanita berpendidikan tinggi, Catherine melihat kejayaan bukan semata-mata melalui gelaran atau pencapaian akademik, tetapi melalui kemampuan untuk menggunakan ilmu, pengalaman dan platform yang dimiliki untuk memberi inspirasi serta mencipta perubahan yang bermakna kepada orang lain."
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- PROGRAM & GALERI AKTIVITI SECTION -->
+    <section id="program" class="py-20 bg-slate-50 border-t border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-100 text-brand-800 text-xs font-bold uppercase tracking-wider">
+                    <i class="fa-solid fa-images"></i>
+                    <span>Aktiviti & Impak Lapangan</span>
+                </div>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">Program BERSAMA Sejak 2024</h2>
+                <p class="text-slate-600">Gambaran program yang telah berjaya dilaksanakan di sekolah-sekolah luar bandar dan rumah anak yatim.</p>
+            </div>
+
+            <!-- Stats Overview Card Row -->
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+                
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex items-center gap-5">
+                    <div class="w-14 h-14 rounded-2xl bg-brand-100 text-brand-700 flex items-center justify-center text-2xl font-black shrink-0">
+                        5
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-slate-900">Sekolah Luar Bandar</h4>
+                        <p class="text-xs text-slate-500 mt-0.5">Program bengkel pembelajaran & bantuan peralatan telah dijalankan</p>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex items-center gap-5">
+                    <div class="w-14 h-14 rounded-2xl bg-amber-100 text-amber-700 flex items-center justify-center text-2xl font-black shrink-0">
+                        2
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-slate-900">Rumah Anak Yatim Piatu</h4>
+                        <p class="text-xs text-slate-500 mt-0.5">Sokongan kesejahteraan & aktiviti pembangunan diri berterusan</p>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex items-center gap-5 sm:col-span-2 lg:col-span-1">
+                    <div class="w-14 h-14 rounded-2xl bg-emerald-100 text-emerald-700 flex items-center justify-center text-2xl font-black shrink-0">
+                        <i class="fa-solid fa-heart-pulse"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-slate-900">Kesihatan Asas</h4>
+                        <p class="text-xs text-slate-500 mt-0.5">Kempen kesedaran kebersihan & kesihatan asas kanak-kanak</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Photo Gallery Grid (Only Program Images) -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- Photo Card 1 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-200 hover:shadow-lg transition-all group">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?q=80&w=800&auto=format&fit=crop" 
+                             alt="Bengkel Pembelajaran Luar Bandar" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-3 left-3 bg-brand-700 text-white text-xs px-3 py-1 rounded-full font-medium shadow">
+                            Sekolah Luar Bandar
+                        </span>
+                    </div>
+                    <div class="p-5">
+                        <h4 class="font-bold text-slate-900 mb-1">Bengkel Akses Pendidikan & Literasi</h4>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Penyerahan bahan bacaan, alat tulis, dan sesi bimbingan interaktif bersama kanak-kanak kawasan pedalaman.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Photo Card 2 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-200 hover:shadow-lg transition-all group">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1542810634-71277d95dcbb?q=80&w=800&auto=format&fit=crop" 
+                             alt="Sokongan Rumah Anak Yatim" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-3 left-3 bg-amber-600 text-white text-xs px-3 py-1 rounded-full font-medium shadow">
+                            Rumah Anak Yatim
+                        </span>
+                    </div>
+                    <div class="p-5">
+                        <h4 class="font-bold text-slate-900 mb-1">Sokongan Kesejahteraan & Kasih Sayang</h4>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Aktiviti ramah mesra, bantuan barangan asas, dan sesi motivasi bersama anak-anak yatim piatu.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Photo Card 3 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-200 hover:shadow-lg transition-all group">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=800&auto=format&fit=crop" 
+                             alt="Program Kesihatan Asas" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-3 left-3 bg-teal-600 text-white text-xs px-3 py-1 rounded-full font-medium shadow">
+                            Kesedaran Kesihatan
+                        </span>
+                    </div>
+                    <div class="p-5">
+                        <h4 class="font-bold text-slate-900 mb-1">Saringan & Kesedaran Kesihatan Asas</h4>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Pendedahan amalan kebersihan diri, pemakanan seimbang, dan penjagaan kesihatan asas untuk komuniti.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Photo Card 4 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-200 hover:shadow-lg transition-all group">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=800&auto=format&fit=crop" 
+                             alt="Sesi Pembangunan Diri" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-3 left-3 bg-purple-600 text-white text-xs px-3 py-1 rounded-full font-medium shadow">
+                            Pembangunan Diri
+                        </span>
+                    </div>
+                    <div class="p-5">
+                        <h4 class="font-bold text-slate-900 mb-1">Membina Keyakinan & Impian Anak-Anak</h4>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Aktiviti berasaskan seni, komunikasi, dan perkongsian inspirasi untuk membimbing potensi unik kanak-kanak.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Photo Card 5 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-200 hover:shadow-lg transition-all group">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?q=80&w=800&auto=format&fit=crop" 
+                             alt="Kerjasama Komuniti" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-3 left-3 bg-emerald-600 text-white text-xs px-3 py-1 rounded-full font-medium shadow">
+                            Komuniti & Sukarelawan
+                        </span>
+                    </div>
+                    <div class="p-5">
+                        <h4 class="font-bold text-slate-900 mb-1">Gotong-Royong & Pemerkasaan Luar Bandar</h4>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Kerjasama erat bersama penduduk tempatan, guru, dan sukarelawan untuk mewujudkan persekitaran kondusif.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Photo Card 6 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-200 hover:shadow-lg transition-all group">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?q=80&w=800&auto=format&fit=crop" 
+                             alt="Bantuan Peralatan Belajar" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-3 left-3 bg-indigo-600 text-white text-xs px-3 py-1 rounded-full font-medium shadow">
+                            Bantuan Sumber
+                        </span>
+                    </div>
+                    <div class="p-5">
+                        <h4 class="font-bold text-slate-900 mb-1">Penghubung Sumber & Sumbangan Buku</h4>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Mendekatkan sumbangan orang ramai terus kepada bilik darjah dan perpustakaan sekolah yang memerlukan.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- HUBUNGI & SERTAI KAMI SECTION -->
+    <section id="hubungi" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="grid lg:grid-cols-12 gap-12">
+                
+                <!-- Contact Details Side -->
+                <div class="lg:col-span-5 space-y-8">
+                    <div>
+                        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-50 border border-brand-200 text-brand-700 text-xs font-bold uppercase tracking-wider mb-3">
+                            <i class="fa-solid fa-paper-plane"></i>
+                            <span>Hubungi BERSAMA</span>
+                        </div>
+                        <h2 class="text-3xl font-extrabold text-slate-900 tracking-tight">
+                            Mari Bergabung & Bertindak Bersama
+                        </h2>
+                        <p class="text-slate-600 text-sm mt-2 leading-relaxed">
+                            Apakah anda berminat untuk menyertai sebagai sukarelawan, membuat sumbangan, atau mengadakan kerjasama komuniti? Hubungi kami hari ini!
+                        </p>
+                    </div>
+
+                    <!-- Direct Contact Cards -->
+                    <div class="space-y-4">
+                        
+                        <!-- WhatsApp Direct -->
+                        <a href="https://wa.me/60176272140" 
+                           target="_blank" 
+                           class="flex items-center p-4 rounded-2xl bg-emerald-50 border border-emerald-200 hover:bg-emerald-100/80 transition-colors group">
+                            <div class="w-12 h-12 rounded-xl bg-emerald-600 text-white flex items-center justify-center text-xl font-bold mr-4 shrink-0 shadow-md">
+                                <i class="fa-brands fa-whatsapp"></i>
+                            </div>
+                            <div class="flex-grow">
+                                <span class="block text-xs font-semibold uppercase text-emerald-800">WhatsApp Direct</span>
+                                <span class="text-lg font-bold text-slate-900">017-627 2140</span>
+                            </div>
+                            <i class="fa-solid fa-arrow-right text-emerald-600 group-hover:translate-x-1 transition-transform mr-2"></i>
+                        </a>
+
+                        <!-- Email Direct -->
+                        <a href="mailto:bersama.anak@gmail.com" 
+                           class="flex items-center p-4 rounded-2xl bg-blue-50 border border-blue-200 hover:bg-blue-100/80 transition-colors group">
+                            <div class="w-12 h-12 rounded-xl bg-blue-600 text-white flex items-center justify-center text-xl font-bold mr-4 shrink-0 shadow-md">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div class="flex-grow">
+                                <span class="block text-xs font-semibold uppercase text-blue-800">Emel Rasmi</span>
+                                <span class="text-base font-bold text-slate-900">bersama.anak@gmail.com</span>
+                            </div>
+                            <i class="fa-solid fa-arrow-right text-blue-600 group-hover:translate-x-1 transition-transform mr-2"></i>
+                        </a>
+
+                    </div>
+
+                    <!-- Founder Social Links Card -->
+                    <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200 space-y-3">
+                        <h4 class="font-bold text-slate-900 text-sm">Ikuti Media Sosial Pengasas:</h4>
+                        <div class="flex flex-col gap-2">
+                            <a href="https://www.facebook.com/share/18X3EeLZC2/?mibextid=wwXIfr" target="_blank" class="text-xs text-blue-700 font-semibold hover:underline flex items-center gap-2">
+                                <i class="fa-brands fa-facebook"></i> Facebook Dr. Catherine Prisca Francis
+                            </a>
+                            <a href="https://www.instagram.com/beauty.umang?stkn=Y2ZkNnQzNzBwajcy&utm_source=qr" target="_blank" class="text-xs text-pink-700 font-semibold hover:underline flex items-center gap-2">
+                                <i class="fa-brands fa-instagram"></i> Instagram (@beauty.umang)
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Volunteer/Inquiry Form Side -->
+                <div class="lg:col-span-7">
+                    <div class="bg-slate-50 border border-slate-200 rounded-3xl p-6 sm:p-8 shadow-sm">
+                        
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">Borang Pertanyaan & Sukarelawan</h3>
+                        <p class="text-xs text-slate-600 mb-6">Isikan maklumat anda di bawah. Pasukan BERSAMA akan menghubungi anda secepat mungkin.</p>
+
+                        <form id="contactForm" class="space-y-4">
+                            
+                            <div class="grid sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-700 mb-1">Nama Penuh *</label>
+                                    <input type="text" required placeholder="Contoh: Ahmad Razak" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-sm outline-none transition-all">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-700 mb-1">Nombor Telefon / WhatsApp *</label>
+                                    <input type="tel" required placeholder="Contoh: 012-3456789" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-sm outline-none transition-all">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-700 mb-1">Alamat Emel *</label>
+                                <input type="email" required placeholder="nama@emel.com" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-sm outline-none transition-all">
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-700 mb-1">Bentuk Hasrat / Penglibatan *</label>
+                                <select required class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-sm outline-none transition-all bg-white">
+                                    <option value="">-- Sila Pilih --</option>
+                                    <option value="sukarelawan">Daftar Sebagai Sukarelawan BERSAMA</option>
+                                    <option value="sumbangan">Sumbangan Peralatan / Bantuan Sekolah</option>
+                                    <option value="kerjasama">Kerjasama Korporat / Komuniti / Rakan Strategik</option>
+                                    <option value="pertanyaan">Pertanyaan Umum</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-700 mb-1">Mesej / Cadangan *</label>
+                                <textarea rows="4" required placeholder="Nyatakan lokasi atau jenis sokongan yang ingin anda sumbangkan..." class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-sm outline-none transition-all"></textarea>
+                            </div>
+
+                            <button type="submit" class="w-full bg-brand-700 hover:bg-brand-800 text-white font-bold py-3.5 px-6 rounded-xl shadow-md shadow-brand-700/20 transition-all flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-paper-plane"></i>
+                                <span>Hantar Mesej Sekarang</span>
+                            </button>
+
+                        </form>
+
+                        <!-- Notification Toast Container -->
+                        <div id="toast-message" class="hidden mt-4 p-4 rounded-xl bg-emerald-100 border border-emerald-300 text-emerald-800 text-xs sm:text-sm font-semibold flex items-center gap-3">
+                            <i class="fa-solid fa-circle-check text-emerald-600 text-lg"></i>
+                            <span>Terima kasih! Mesej anda telah berjaya dijana. Sila teruskan via WhatsApp atau Emel rasmi untuk maklum balas pantas.</span>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER SECTION -->
+    <footer class="bg-slate-900 text-slate-400 py-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-12 gap-8 pb-12 border-b border-slate-800">
+                
+                <div class="md:col-span-5 space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-brand-600 text-white flex items-center justify-center font-bold">
+                            <i class="fa-solid fa-hands-holding-child text-xl"></i>
+                        </div>
+                        <span class="text-xl font-extrabold text-white">BERSAMA</span>
+                    </div>
+                    <p class="text-xs text-slate-400 leading-relaxed max-w-sm">
+                        BERSAMA – Bersatu Bersama Anak (Diasaskan 2024). Gerakan advokasi untuk akses pendidikan berkualiti, penjagaan kesihatan asas & pembangunan potensi kanak-kanak luar bandar.
+                    </p>
+                    <p class="text-xs text-amber-400 font-semibold">
+                        🏆 Anugerah Ikon Wanita 2025 (Kategori Sukarelawan)
+                    </p>
+                </div>
+
+                <div class="md:col-span-3 space-y-3">
+                    <h5 class="text-sm font-bold text-white">Pautan Pantas</h5>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="#sejarah" class="hover:text-white transition-colors">Sejarah BERSAMA</a></li>
+                        <li><a href="#visi-misi" class="hover:text-white transition-colors">Visi & Misi</a></li>
+                        <li><a href="#pengasas" class="hover:text-white transition-colors">Latar Belakang Founder</a></li>
+                        <li><a href="#program" class="hover:text-white transition-colors">Impak & Galeri Program</a></li>
+                        <li><a href="#hubungi" class="hover:text-white transition-colors">Hubungi & Sertai Sukarelawan</a></li>
+                    </ul>
+                </div>
+
+                <div class="md:col-span-4 space-y-3">
+                    <h5 class="text-sm font-bold text-white">Hubungi Kami</h5>
+                    <ul class="space-y-2 text-xs">
+                        <li class="flex items-center gap-2">
+                            <i class="fa-brands fa-whatsapp text-emerald-400"></i>
+                            <a href="https://wa.me/60176272140" target="_blank" class="hover:text-white">017-627 2140</a>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fa-solid fa-envelope text-blue-400"></i>
+                            <a href="mailto:bersama.anak@gmail.com" class="hover:text-white">bersama.anak@gmail.com</a>
+                        </li>
+                    </ul>
+                    <div class="pt-2">
+                        <span class="block text-xs text-slate-500 mb-2">Ikuti Dr. Catherine Prisca Francis:</span>
+                        <div class="flex gap-2">
+                            <a href="https://www.facebook.com/share/18X3EeLZC2/?mibextid=wwXIfr" target="_blank" class="w-8 h-8 rounded-lg bg-slate-800 hover:bg-brand-600 text-white flex items-center justify-center transition-colors">
+                                <i class="fa-brands fa-facebook-f text-xs"></i>
+                            </a>
+                            <a href="https://www.instagram.com/beauty.umang?stkn=Y2ZkNnQzNzBwajcy&utm_source=qr" target="_blank" class="w-8 h-8 rounded-lg bg-slate-800 hover:bg-brand-600 text-white flex items-center justify-center transition-colors">
+                                <i class="fa-brands fa-instagram text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="pt-8 text-center text-xs text-slate-500 flex flex-col sm:flex-row justify-between items-center gap-4">
+                <p>&copy; 2024 - 2026 BERSAMA – Bersatu Bersama Anak. Hak Cipta Terelihara.</p>
+                <p class="italic text-slate-400">“Tiada anak yang seharusnya dibatasi oleh tempat mereka dilahirkan.”</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE JAVASCRIPT -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // Mobile Menu Toggle Logic
+            const mobileBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuIcon = document.getElementById('menu-icon');
+            const mobileLinks = document.querySelectorAll('.mobile-link');
+
+            if (mobileBtn && mobileMenu) {
+                mobileBtn.addEventListener('click', function() {
+                    mobileMenu.classList.toggle('hidden');
+                    if (mobileMenu.classList.contains('hidden')) {
+                        menuIcon.className = 'fa-solid fa-bars text-xl';
+                    } else {
+                        menuIcon.className = 'fa-solid fa-xmark text-xl';
+                    }
+                });
+
+                mobileLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        mobileMenu.classList.add('hidden');
+                        menuIcon.className = 'fa-solid fa-bars text-xl';
+                    });
+                });
+            }
+
+            // Contact Form Submit Handling
+            const contactForm = document.getElementById('contactForm');
+            const toastMessage = document.getElementById('toast-message');
+
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Show confirmation message inside modal/toast without using alert()
+                    if (toastMessage) {
+                        toastMessage.classList.remove('hidden');
+                        contactForm.reset();
+
+                        setTimeout(() => {
+                            toastMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        }, 100);
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
